@@ -1,5 +1,8 @@
 {
   "buildCommand": "react-scripts build",
   "outputDirectory": "build",
-  "framework": "create-react-app"
+  "framework": "create-react-app",
+  "engines": {
+    "node": "18.x"
+  }
 }
