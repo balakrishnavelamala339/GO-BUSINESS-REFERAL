@@ -31,16 +31,17 @@ function Dashboard() {
                     'Authorization': `Bearer ${token}`
                 }
             });
-            const data = await res.json();
+            const json = await res.json();
+          
             if(!res.ok){
-                setError(`json?.message || 'Failed to load data'}($res.status)`);
+                setError(`json?.message || 'Failed to load data'} ($res.status)`);
                 setLoading(false);
                 return;
             }
             setData(json.data || json);
             setPage(1);
         }   catch (err) {
-            setError('Network error. Please try again.');
+            setError(err.message || 'An error occurred while fetching data');
         }
         setLoading(false);
     }, []);
